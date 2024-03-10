@@ -10,9 +10,12 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 # Create a Flask web app
 covid_ct = Flask(__name__, static_url_path='/static')
 
+# Get the absolute path to the Models directory
+models_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'Models'))
+
 # Load the model
-model_path = 'C:/Github/DLCovid19/flask/Models/model.keras'
-model1_path = 'C:/Github/DLCovid19/flask/Models/model1.keras'
+model_path = os.path.join(models_dir, 'model.keras')
+model1_path = os.path.join(models_dir, 'model1.keras')
 model = load_model(model_path)
 model1 = load_model(model1_path)
 
